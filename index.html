@@ -127,6 +127,19 @@
       margin-top: 20px;
     }
     
+    .counter-section {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .counter {
+      font-size: 48px;
+      font-weight: 700;
+      color: #667eea;
+      margin: 15px 0;
+    }
+    
     .status {
       font-size: 14px;
       color: #667eea;
@@ -144,8 +157,21 @@
     <div class="footer-text">
       Our hosting account was temporarily frozen by Google for unusual activity. We're working to restore access. Check back in a day or two.
     </div>
+    
+    <div class="counter-section">
+      <p style="font-size: 14px; color: #999; margin-top: 40px; margin-bottom: 15px;">People interested since shutdown:</p>
+      <div class="counter" id="counter">0</div>
+    </div>
   </div>
 
-
+  <script>
+    // Get current count from localStorage
+    let count = localStorage.getItem('grayscreek_visitors') || '0';
+    count = parseInt(count) + 1;
+    localStorage.setItem('grayscreek_visitors', count);
+    
+    // Display the count
+    document.getElementById('counter').textContent = count.toLocaleString();
+  </script>
 </body>
 </html>
